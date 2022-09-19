@@ -2,21 +2,26 @@
 #include "main.h"
 
 /**
- * print_chessboard - prints the chessboard
- * @a: pointer to pieces to print
- *
- * Return: void
+ * puts_half - a function that prints half of a string
+ * if odd len, n = (length_of_the_string - 1) / 2
+ * @str: input
+ * Return: half of input
  */
-void print_chessboard(char (*a)[8])
+void puts_half(char *str)
 {
-	int i, j;
+	int i, n, len;
 
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
-		{
-			_putchar(a[i][j]);
-		}
-		_putchar('\n');
-	}
+	len = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+		len++;
+
+	n = (len / 2);
+
+	if ((len % 2) == 1)
+		n = ((len + 1) / 2);
+
+	for (i = n; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	_putchar('\n');
 }
